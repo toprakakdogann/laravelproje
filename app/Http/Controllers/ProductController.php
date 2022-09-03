@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Psy\Util\Str;
 
 class ProductController extends Controller
 {
@@ -34,8 +35,11 @@ class ProductController extends Controller
          * 301 = Yönlendirme durumları arasında kalıcı taşındı durumudur (istenilen kaynağın kesin bir URL ye taşındığını gösterir)
          *
          * 'users' => DB::table('users')->paginate(15) bu şekilde sayfalama özelliği kullanılarak bir sayfaya istenilen sayıda veri alınabilir
-         */
-      return $products = Product::get();
+
+        */
+        $products = Product::paginate(25);
+        return view('products.index',compact('products'));
+
     }
 
     /**

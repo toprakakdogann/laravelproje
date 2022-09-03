@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 class ProductSeeder extends Seeder
 {
@@ -14,15 +15,17 @@ class ProductSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('products')->insert([
-            'commission_rate' => floatval('10.00'),
-            'discount_rate' => floatval('20.00'),
+        \DB::table('products')->insert([
+            'ply_id' => 1,
+            'commission_rate' => mt_rand(1,100),
+            'discount_rate' => mt_rand(1,100),
             'name' => Str::random(10),
             'description' => Str::random(60),
-            'price' => floatval('80.00'),
-            'currency' => Hash::make('TL'),
-            'developer_name' => Hash::make('Toprak Akdogan'),
-            'publisher_name' => Hash::make('Toprak Akdogan'),
+            'price' => 80,
+            'currency' => 'TL',
+            'developer_name' => 'Toprak Akdogan',
+            'publisher_name' => 'Toprak Akdogan',
+            'merchant_id' => 1,
         ]);
     }
 }

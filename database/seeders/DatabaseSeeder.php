@@ -23,18 +23,16 @@ class DatabaseSeeder extends Seeder
 //      ]);
 //  }
 
-//    public function run()
-//    {
-//        DB::table('products')->insert([
-//            'commission_rate' => floatval('10.00'),
-//            'discount_rate' => floatval('20.00'),
-//            'name' => Str::random(10),
-//            'description' => Str::random(60),
-//            'price' => floatval('80.00'),
-//            'currency' => Hash::make('TL'),
-//            'developer_name' => Hash::make('Toprak Akdogan'),
-//            'publisher_name' => Hash::make('Toprak Akdogan'),
-//        ]);
-//     }
+    public function run()
+    {
+        for ($i=0;$i<100;$i++){
+            $this->call([
+                ProductSeeder::class
+            ]);
+        }
+
+
+
+    }
 
 }

@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->integer('ply_id');
-            $table->double('commission_rate',3,2);
-            $table->double('discount_rate',3,2);
+            $table->double('commission_rate');
+            $table->double('discount_rate');
             $table->string('name');
             $table->text('description');
             $table->integer('price');
